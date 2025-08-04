@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramky The Eminent | Luxury Gated Community in Gaganpahad</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0E4B80',
+            darkprimary: '#0A3A66',
+            slate: '#1E293B',
+            stone: '#F5F5F4',
+            gold: '#D4AF37',
+            ramkyblue: '#003366',
+            ramkygold: '#FFD700',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            body: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'text-reveal': 'textReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            textReveal: {
+              '0%': { transform: 'translateY(100%)' },
+              '100%': { transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      overflow-x: hidden;
+    }
+    .mobile-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(14,75,128,0.9) 0%, rgba(30,41,59,0.9) 100%);
+    }
+    .text-reveal {
+      overflow: hidden;
+    }
+    .text-reveal span {
+      display: inline-block;
+      animation: textReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      animation-delay: calc(0.1s * var(--i));
+    }
+    .section-divider {
+      height: 60px;
+      background: linear-gradient(to bottom, #1E293B, #0E4B80);
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      animation: pulse 2s infinite;
+    }
+    .logo-text {
+      color: #003366;
+      text-shadow: 1px 1px 2px rgba(255,215,0,0.5);
+    }
+    .logo-gold {
+      color: #FFD700;
+    }
+    @media (max-width: 768px) {
+      .hero-section {
+        background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') !important;
+      }
+      .section-divider {
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body class="font-body bg-stone text-slate">
+  <!-- Header -->
+  <header class="fixed w-full z-40 transition-all duration-500" id="navbar" style="top: 0;">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="logo">
+        <h1 class="text-xl md:text-2xl font-heading font-bold">
+          <span class="logo-text">RAMKY</span> 
+          <span class="logo-gold">THE EMINENT</span>
+        </h1>
+      </div>
+      
+      <nav class="hidden lg:block">
+        <ul class="flex space-x-6 md:space-x-8">
+          <li><a href="#overview" class="font-semibold text-white hover:text-ramkygold transition-colors">OVERVIEW</a></li>
+          <li><a href="#amenities" class="font-semibold text-white hover:text-ramkygold transition-colors">AMENITIES</a></li>
+          <li><a href="#gallery" class="font-semibold text-white hover:text-ramkygold transition-colors">GALLERY</a></li>
+          <li><a href="#floorplans" class="font-semibold text-white hover:text-ramkygold transition-colors">FLOOR PLANS</a></li>
+          <li><a href="#location" class="font-semibold text-white hover:text-ramkygold transition-colors">LOCATION</a></li>
+          <li><a href="#contact" class="bg-ramkygold text-ramkyblue px-6 py-1.5 rounded-full font-bold hover:bg-yellow-600 transition-all transform hover:scale-105">ENQUIRE</a></li>
+        </ul>
+      </nav>
+      
+      <div class="mobile-menu lg:hidden cursor-pointer z-50">
+        <span class="block w-6 h-0.5 bg-white my-1.5 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white my-1.5 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white my-1.5 transition-all duration-300"></span>
+      </div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav hidden lg:hidden fixed inset-0 bg-slate bg-opacity-95 z-40 flex items-center justify-center transition-opacity duration-300">
+      <ul class="text-center space-y-6">
+        <li><a href="#overview" class="text-2xl font-bold text-white hover:text-ramkygold transition-colors block py-2">OVERVIEW</a></li>
+        <li><a href="#amenities" class="text-2xl font-bold text-white hover:text-ramkygold transition-colors block py-2">AMENITIES</a></li>
+        <li><a href="#gallery" class="text-2xl font-bold text-white hover:text-ramkygold transition-colors block py-2">GALLERY</a></li>
+        <li><a href="#floorplans" class="text-2xl font-bold text-white hover:text-ramkygold transition-colors block py-2">FLOOR PLANS</a></li>
+        <li><a href="#location" class="text-2xl font-bold text-white hover:text-ramkygold transition-colors block py-2">LOCATION</a></li>
+        <li><a href="#contact" class="text-2xl font-bold text-ramkygold hover:text-white transition-colors block py-2">ENQUIRE</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section h-screen bg-cover bg-center flex items-center justify-center text-center relative overflow-hidden" style="background-image: url('ram 1.jpg')">
+    <div class="absolute inset-0 hero-gradient"></div>
+    <div class="container mx-auto px-4 relative z-10 pt-16">
+      <h1 class="text-4xl md:text-6xl font-heading font-bold mb-4 text-white">
+        <div class="text-reveal">
+          <span style="--i:1">R</span>
+          <span style="--i:2">A</span>
+          <span style="--i:3">M</span>
+          <span style="--i:4">K</span>
+          <span style="--i:5">Y</span>
+        </div>
+        <div class="text-reveal">
+          <span style="--i:6">T</span>
+          <span style="--i:7">H</span>
+          <span style="--i:8">E</span>
+          <span style="--i:9"> E</span>
+          <span style="--i:10">M</span>
+          <span style="--i:11">I</span>
+          <span style="--i:12">N</span>
+          <span style="--i:13">E</span>
+          <span style="--i:14">N</span>
+          <span style="--i:15">T</span>
+        </div>
+      </h1>
+      <p class="text-lg md:text-xl text-ramkygold mb-6 font-semibold tracking-widest">GAGANPAHAD, HYDERABAD</p>
+      <p class="text-white mb-8 max-w-2xl mx-auto text-lg">Upcoming Luxurious Gated Community in Rajendra Nagar</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button onclick="openPopup()" class="inline-block bg-transparent border-2 border-ramkygold text-ramkygold px-8 py-2 rounded-full font-bold hover:bg-ramkygold hover:text-white transition-all transform hover:scale-105 animate-pulse-slow">VIEW DETAILS</button>
+        <a href="#contact" class="inline-block bg-ramkygold text-ramkyblue px-8 py-2 rounded-full font-bold hover:bg-yellow-600 transition-all transform hover:scale-105">ENQUIRE NOW</a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#overview" class="text-white text-2xl"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="py-12 md:py-16 bg-slate text-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+        <div class="lg:w-1/2">
+          <div class="relative animate-float">
+            <img src="ram 3.jpg" alt="Luxury Apartment" class="rounded-lg shadow-2xl w-full">
+            <div class="absolute -inset-3 border-2 border-ramkygold rounded-lg pointer-events-none"></div>
+          </div>
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
+            <span class="text-ramkygold">EXPERIENCE</span><br>
+            LUXURY LIVING
+          </h2>
+          <p class="mb-6 leading-relaxed">Ramky The Eminent presents an unparalleled living experience in Gaganpahad, Hyderabad. Nestled in an 8-acre lush green parcel, these meticulously designed apartments redefine luxury living with modern amenities and timeless elegance.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+            <div class="bg-white bg-opacity-10 p-4 rounded-lg border border-ramkygold border-opacity-30">
+              <h3 class="text-xl font-heading font-bold text-ramkygold mb-2">PROJECT HIGHLIGHTS</h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>724 Premium Units across 8 Acres</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>3BHK, 3.5BHK, 4BHK & 4BHK + Office</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>2290 - 4100 Sq.Ft. sizes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>4 Towers | G+29 to G+30 Floors</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 p-4 rounded-lg border border-ramkygold border-opacity-30">
+              <h3 class="text-xl font-heading font-bold text-ramkygold mb-2">PROJECT USP</h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>Only 91 Flats per Acre</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>80% Open Spaces</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>60% Corner Flats</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-ramkygold mr-2">•</span>
+                  <span>2:1 Ratio Lifts</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="bg-ramkygold bg-opacity-20 p-4 rounded-lg border border-ramkygold">
+            <div class="flex items-center">
+              <div class="text-2xl mr-4 text-ramkygold">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">PRIME LOCATION</h4>
+                <p class="text-sm">Near MS Convention, Bangalore Highway, Gaganpahad, Hyderabad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities Section -->
+  <section id="amenities" class="py-12 md:py-16 bg-stone">
+    <div class="section-divider -mt-16"></div>
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-8 md:mb-12">
+        <span class="text-slate">WORLD-CLASS</span>
+        <span class="text-ramkyblue"> AMENITIES</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-ramkygold">
+          <div class="text-ramkygold text-4xl mb-4">
+            <i class="fas fa-swimming-pool"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3">LUXURY CLUBHOUSE</h3>
+          <p class="text-gray-700">50,000 Sq.Ft. G+5 floors with premium facilities</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-ramkygold">
+          <div class="text-ramkygold text-4xl mb-4">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3">WELLNESS CENTER</h3>
+          <p class="text-gray-700">Holistic spa with ayurvedic and contemporary treatments</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-ramkygold">
+          <div class="text-ramkygold text-4xl mb-4">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3">FITNESS CENTER</h3>
+          <p class="text-gray-700">State-of-the-art gym with personal trainers</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-ramkygold">
+          <div class="text-ramkygold text-4xl mb-4">
+            <i class="fas fa-tree"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3">LANDSCAPED GARDENS</h3>
+          <p class="text-gray-700">80% open spaces with beautifully manicured greens</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-ramkygold">
+          <div class="text-ramkygold text-4xl mb-4">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3">24/7 SECURITY</h3>
+          <p class="text-gray-700">Gated community with round-the-clock surveillance</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-ramkygold">
+          <div class="text-ramkygold text-4xl mb-4">
+            <i class="fas fa-child"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold mb-3">KIDS PLAY AREA</h3>
+          <p class="text-gray-700">Dedicated safe play zones for children</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section - Simple Image Grid -->
+  <section id="gallery" class="py-12 md:py-16 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-8 md:mb-12">
+        <span class="text-slate">PROJECT</span>
+        <span class="text-ramkyblue"> GALLERY</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="ram 8.jpg" alt="Project View" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="ram 9.jpg" alt="Lobby Area" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="ram 10.jpg" alt="Amenities" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="ram 11.jpg" alt="Swimming Pool" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="ram 12.jpg" alt="Garden View" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <img src="ram 13.jpg" alt="Interior Design" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floor Plans Section -->
+  <section id="floorplans" class="py-12 md:py-16 bg-stone">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-8 md:mb-12">
+        <span class="text-slate">FLOOR</span>
+        <span class="text-ramkyblue"> PLANS</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <h3 class="text-xl font-heading font-bold mb-4 text-ramkyblue">3 BHK</h3>
+          <img src="ram 5.jpg" alt="3BHK Floor Plan" class="w-full h-64 object-cover mb-4 rounded">
+          <p class="text-gray-700 mb-2"><span class="font-bold">Size:</span> 2290 Sq.Ft.</p>
+          <p class="text-gray-700"><span class="font-bold">Price:</span> ₹7000++ per Sq.Ft.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <h3 class="text-xl font-heading font-bold mb-4 text-ramkyblue">3.5 BHK</h3>
+          <img src="ram 6.jpg" alt="3.5BHK Floor Plan" class="w-full h-64 object-cover mb-4 rounded">
+          <p class="text-gray-700 mb-2"><span class="font-bold">Size:</span> 2850 Sq.Ft.</p>
+          <p class="text-gray-700"><span class="font-bold">Price:</span> ₹7200++ per Sq.Ft.</p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <h3 class="text-xl font-heading font-bold mb-4 text-ramkyblue">4 BHK</h3>
+          <img src="ram 7.jpg" alt="4BHK Floor Plan" class="w-full h-64 object-cover mb-4 rounded">
+          <p class="text-gray-700 mb-2"><span class="font-bold">Size:</span> 3500 Sq.Ft.</p>
+          <p class="text-gray-700"><span class="font-bold">Price:</span> ₹7400++ per Sq.Ft.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="py-12 md:py-16 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-8 md:mb-12">
+        <span class="text-slate">PRIME</span>
+        <span class="text-ramkyblue"> LOCATION</span>
+      </h2>
+      
+      <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+        <div class="lg:w-1/2">
+          <div class="bg-stone p-6 rounded-lg shadow-xl h-full">
+            <h3 class="text-2xl font-heading font-bold mb-4 text-ramkygold">CONNECTIVITY</h3>
+            <p class="mb-6">Ramky The Eminent enjoys a prestigious address in Gaganpahad with exceptional connectivity to key areas of Hyderabad.</p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="text-ramkygold text-xl mr-3 mt-1">
+                  <i class="fas fa-road"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate">MAJOR ROADS</h4>
+                  <p class="text-sm text-gray-600">5 mins to PVNR Express Highway<br>
+                  10 mins to ORR<br>
+                  3 side road access with NE entry</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-ramkygold text-xl mr-3 mt-1">
+                  <i class="fas fa-plane"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate">AIRPORT</h4>
+                  <p class="text-sm text-gray-600">10 mins to Rajiv Gandhi International Airport</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-ramkygold text-xl mr-3 mt-1">
+                  <i class="fas fa-train"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate">METRO</h4>
+                  <p class="text-sm text-gray-600">15 mins to Proposed Metro Station</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-ramkygold text-xl mr-3 mt-1">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate">BUSINESS DISTRICTS</h4>
+                  <p class="text-sm text-gray-600">10 mins to Financial District<br>
+                  15 mins to HITEC City</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:w-1/2">
+          <div class="rounded-lg overflow-hidden shadow-xl h-full relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.356674024016!2d78.3687853153747!3d17.44390498804493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93b1e0d5f3a5%3A0x4b6b5b5b5b5b5b5b!2sGaganpahad%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1620634466465!5m2!1sen!2sin" 
+              class="w-full h-full min-h-[400px]" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <a href="https://g.co/kgs/aGFN7ko" target="_blank" class="bg-ramkygold text-ramkyblue px-6 py-3 rounded-full font-bold hover:bg-yellow-600 transition-all flex items-center">
+                <i class="fas fa-map-marked-alt mr-2"></i> OPEN IN MAPS
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 md:py-16 bg-slate text-white">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-6">
+        <span class="text-ramkygold">REGISTER</span>
+        <span> YOUR INTEREST</span>
+      </h2>
+      <p class="text-center mb-8">Be among the first to experience this exclusive development</p>
+      
+      <div class="bg-white bg-opacity-10 p-6 md:p-8 rounded-lg backdrop-blur-sm border border-ramkygold border-opacity-20">
+        <div class="text-center mb-6 md:mb-8">
+          <div class="inline-flex items-center bg-ramkygold bg-opacity-20 px-6 py-3 rounded-full border border-ramkygold mb-4 md:mb-6">
+            <!-- <i class="fas fa-phone-alt text-ramkygold mr-3"></i>
+            <span class="font-bold">+91 XXXXXXXXXX</span>
+          </div> -->
+          <p class="text-sm">Call our sales team for private consultations</p>
+        </div>
+        
+        <form id="contactForm" class="space-y-4 md:space-y-6">
+          <div>
+            <input type="text" placeholder="Full Name" class="w-full px-4 py-3 bg-white bg-opacity-10 border-b border-ramkygold border-opacity-50 focus:outline-none focus:border-opacity-100 placeholder-white placeholder-opacity-70 transition-colors duration-300" required>
+          </div>
+          <div>
+            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 bg-white bg-opacity-10 border-b border-ramkygold border-opacity-50 focus:outline-none focus:border-opacity-100 placeholder-white placeholder-opacity-70 transition-colors duration-300" required>
+          </div>
+          <div>
+            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 bg-white bg-opacity-10 border-b border-ramkygold border-opacity-50 focus:outline-none focus:border-opacity-100 placeholder-white placeholder-opacity-70 transition-colors duration-300" required>
+          </div>
+          <div>
+            <select class="w-full px-4 py-3 bg-white bg-opacity-10 border-b border-ramkygold border-opacity-50 focus:outline-none focus:border-opacity-100 appearance-none" required>
+              <option value="" disabled selected>Interested In</option>
+              <option>3 BHK</option>
+              <option>3.5 BHK</option>
+              <option>4 BHK</option>
+              <option>4 BHK + Office</option>
+            </select>
+          </div>
+          <div class="text-center pt-2 md:pt-4">
+            <button type="submit" class="bg-ramkygold text-ramkyblue px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition-all transform hover:scale-105">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-xl font-heading font-bold">
+            <span class="logo-text">RAMKY</span> 
+            <span class="logo-gold">THE EMINENT</span>
+          </h2>
+          <p class="text-sm text-gray-400 mt-1">Gaganpahad, Rajendra Nagar, Hyderabad</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-ramkygold transition-colors"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-ramkygold transition-colors"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-ramkygold transition-colors"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-6 pt-6 text-center text-sm text-gray-400">
+        <p>© 2023 Ramky The Eminent. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919876543210" class="whatsapp-button bg-ramkygold text-ramkyblue p-4 rounded-full shadow-lg hover:bg-yellow-600 transition-colors">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Popup Modal -->
+  <div id="popupModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-2xl font-heading font-bold text-ramkyblue">
+            <span>RAMKY</span> 
+            <span class="text-ramkygold">THE EMINENT</span>
+          </h3>
+          <button onclick="closePopup()" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="bg-ramkygold bg-opacity-10 p-4 rounded-lg border border-ramkygold">
+            <h4 class="font-bold text-ramkyblue mb-2">🏡 Upcoming Luxurious Gated Community in Gaganpahad (Rajendra Nagar), Hyderabad</h4>
+            <p class="text-gray-700">🌟 Experience Luxury Living with Exceptional Connectivity!</p>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-slate mb-2">📍 Location:</h4>
+            <p class="text-gray-700">Near MS Convention, Bangalore Highway</p>
+            <a href="https://g.co/kgs/aGFN7ko" target="_blank" class="text-ramkyblue hover:underline">👉 Location Map</a>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-slate mb-2">✨ Project Highlights:</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>Spread across 8 Acres with 724 Premium Units</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>3BHK, 3.5BHK, 4BHK & 4BHK + Office Room</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>Sizes: 2290 - 4100 Sft</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>4 Towers | G+29 to G+30 Floors | 3-Level Basement Parking</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>Lavish 50,000 Sft Clubhouse with G+5 Floors</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-slate mb-2">💪 Project USP:</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">🔑</span>
+                <span>Only 91 Flats per Acre – Low-Density Community</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">🌳</span>
+                <span>80% Open Spaces</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">🚪</span>
+                <span>60% Corner Flats for Maximum Ventilation</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">🛗</span>
+                <span>2:1 Ratio Lifts for Hassle-Free Movement</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">🌐</span>
+                <span>Surrounded by 3 Side Roads with North-East Entry</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">🏡</span>
+                <span>Large Balconies offering Uninterrupted Views</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-slate mb-2">🚦 Connectivity:</h4>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>5 Mins to PVNR Express Highway</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>10 Mins to ORR & Rajiv Gandhi International Airport</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>10 Mins to Financial District</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-ramkygold mr-2">✅</span>
+                <span>15 Mins to Proposed Metro Station</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-bold text-slate mb-2">💰 Price Range:</h4>
+            <p class="text-gray-700">Block D: ₹7000++<br>Block B: ₹7400++</p>
+          </div>
+          
+          <div class="bg-ramkygold bg-opacity-10 p-4 rounded-lg border border-ramkygold">
+            <h4 class="font-bold text-ramkyblue text-center">🏡 Your Dream Home Awaits!</h4>
+          </div>
+        </div>
+        
+        <div class="mt-6 flex justify-center">
+          <a href="#contact" class="bg-ramkygold text-ramkyblue px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition-all transform hover:scale-105">ENQUIRE NOW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const body = document.body;
+    
+    mobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      mobileNav.classList.toggle('hidden');
+      body.classList.toggle('overflow-hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileNav.classList.add('hidden');
+        body.classList.remove('overflow-hidden');
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    const heroSection = document.querySelector('.hero-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          navbar.classList.add('bg-slate', 'shadow-lg');
+          navbar.classList.remove('bg-transparent');
+        } else {
+          navbar.classList.add('bg-transparent');
+          navbar.classList.remove('bg-slate', 'shadow-lg');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    observer.observe(heroSection);
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Animation on scroll
+    const animateElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in');
+    
+    const animateOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          animateOnScroll.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    animateElements.forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      animateOnScroll.observe(element);
+    });
+
+    // Auto-show WhatsApp button after scrolling
+    const whatsappButton = document.querySelector('.whatsapp-button');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        whatsappButton.style.display = 'block';
+      } else {
+        whatsappButton.style.display = 'none';
+      }
+    });
+
+    // Popup Modal
+    function openPopup() {
+      document.getElementById('popupModal').classList.remove('hidden');
+      body.classList.add('overflow-hidden');
+    }
+    
+    function closePopup() {
+      document.getElementById('popupModal').classList.add('hidden');
+      body.classList.remove('overflow-hidden');
+    }
+    
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your interest! Our team will contact you shortly.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
