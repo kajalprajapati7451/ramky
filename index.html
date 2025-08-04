@@ -75,19 +75,28 @@
       background: linear-gradient(to bottom, #1E293B, #0E4B80);
       clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
     }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 999;
-      animation: pulse 2s infinite;
-    }
     .logo-text {
       color: #003366;
       text-shadow: 1px 1px 2px rgba(255,215,0,0.5);
     }
     .logo-gold {
       color: #FFD700;
+    }
+    .coming-soon-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      background: rgba(0, 51, 102, 0.95);
+      color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      border: 2px solid #FFD700;
     }
     @media (max-width: 768px) {
       .hero-section {
@@ -96,10 +105,21 @@
       .section-divider {
         height: 40px;
       }
+      .coming-soon-popup {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body class="font-body bg-stone text-slate">
+  <!-- Coming Soon Popup -->
+  <div id="comingSoonPopup" class="coming-soon-popup">
+    <h3 class="text-2xl font-heading font-bold mb-4 text-ramkygold">COMING SOON</h3>
+    <p class="mb-4">Ramky The Eminent is launching soon in Gaganpahad, Hyderabad</p>
+    <p class="mb-6">Register your interest to be the first to know about our exclusive pre-launch offers.</p>
+    <button onclick="closeComingSoonPopup()" class="bg-ramkygold text-ramkyblue px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition-all">GOT IT</button>
+  </div>
+
   <!-- Header -->
   <header class="fixed w-full z-40 transition-all duration-500" id="navbar" style="top: 0;">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -475,9 +495,9 @@
       <div class="bg-white bg-opacity-10 p-6 md:p-8 rounded-lg backdrop-blur-sm border border-ramkygold border-opacity-20">
         <div class="text-center mb-6 md:mb-8">
           <div class="inline-flex items-center bg-ramkygold bg-opacity-20 px-6 py-3 rounded-full border border-ramkygold mb-4 md:mb-6">
-            <!-- <i class="fas fa-phone-alt text-ramkygold mr-3"></i>
+            <i class="fas fa-phone-alt text-ramkygold mr-3"></i>
             <span class="font-bold">+91 XXXXXXXXXX</span>
-          </div> -->
+          </div>
           <p class="text-sm">Call our sales team for private consultations</p>
         </div>
         
@@ -532,154 +552,8 @@
       </div>
     </div>
   </footer>
-
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/919876543210" class="whatsapp-button bg-ramkygold text-ramkyblue p-4 rounded-full shadow-lg hover:bg-yellow-600 transition-colors">
-    <i class="fab fa-whatsapp text-2xl"></i>
-  </a>
-
-  <!-- Popup Modal -->
-  <div id="popupModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-    <div class="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-2xl font-heading font-bold text-ramkyblue">
-            <span>RAMKY</span> 
-            <span class="text-ramkygold">THE EMINENT</span>
-          </h3>
-          <button onclick="closePopup()" class="text-gray-500 hover:text-gray-700">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        
-        <div class="space-y-4">
-          <div class="bg-ramkygold bg-opacity-10 p-4 rounded-lg border border-ramkygold">
-            <h4 class="font-bold text-ramkyblue mb-2">🏡 Upcoming Luxurious Gated Community in Gaganpahad (Rajendra Nagar), Hyderabad</h4>
-            <p class="text-gray-700">🌟 Experience Luxury Living with Exceptional Connectivity!</p>
-          </div>
-          
-          <div>
-            <h4 class="font-bold text-slate mb-2">📍 Location:</h4>
-            <p class="text-gray-700">Near MS Convention, Bangalore Highway</p>
-            <a href="https://g.co/kgs/aGFN7ko" target="_blank" class="text-ramkyblue hover:underline">👉 Location Map</a>
-          </div>
-          
-          <div>
-            <h4 class="font-bold text-slate mb-2">✨ Project Highlights:</h4>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>Spread across 8 Acres with 724 Premium Units</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>3BHK, 3.5BHK, 4BHK & 4BHK + Office Room</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>Sizes: 2290 - 4100 Sft</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>4 Towers | G+29 to G+30 Floors | 3-Level Basement Parking</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>Lavish 50,000 Sft Clubhouse with G+5 Floors</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 class="font-bold text-slate mb-2">💪 Project USP:</h4>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">🔑</span>
-                <span>Only 91 Flats per Acre – Low-Density Community</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">🌳</span>
-                <span>80% Open Spaces</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">🚪</span>
-                <span>60% Corner Flats for Maximum Ventilation</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">🛗</span>
-                <span>2:1 Ratio Lifts for Hassle-Free Movement</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">🌐</span>
-                <span>Surrounded by 3 Side Roads with North-East Entry</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">🏡</span>
-                <span>Large Balconies offering Uninterrupted Views</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 class="font-bold text-slate mb-2">🚦 Connectivity:</h4>
-            <ul class="space-y-2 text-gray-700">
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>5 Mins to PVNR Express Highway</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>10 Mins to ORR & Rajiv Gandhi International Airport</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>10 Mins to Financial District</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-ramkygold mr-2">✅</span>
-                <span>15 Mins to Proposed Metro Station</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 class="font-bold text-slate mb-2">💰 Price Range:</h4>
-            <p class="text-gray-700">Block D: ₹7000++<br>Block B: ₹7400++</p>
-          </div>
-          
-          <div class="bg-ramkygold bg-opacity-10 p-4 rounded-lg border border-ramkygold">
-            <h4 class="font-bold text-ramkyblue text-center">🏡 Your Dream Home Awaits!</h4>
-          </div>
-        </div>
-        
-        <div class="mt-6 flex justify-center">
-          <a href="#contact" class="bg-ramkygold text-ramkyblue px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition-all transform hover:scale-105">ENQUIRE NOW</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Mobile Menu Toggle
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const body = document.body;
-    
-    mobileMenu.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      mobileNav.classList.toggle('hidden');
-      body.classList.toggle('overflow-hidden');
-    });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        mobileNav.classList.add('hidden');
-        body.classList.remove('overflow-hidden');
-      });
-    });
-    
+   
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     const heroSection = document.querySelector('.hero-section');
@@ -718,6 +592,47 @@
         }
       });
     });
+    // Show coming soon popup on page load
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('comingSoonPopup').classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+});
+
+// Close coming soon popup
+function closeComingSoonPopup() {
+  document.getElementById('comingSoonPopup').classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
+// Mobile Menu Toggle
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileNav = document.querySelector('.mobile-nav');
+const body = document.body;
+
+mobileMenu.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+  mobileNav.classList.toggle('hidden');
+  body.classList.toggle('overflow-hidden');
+});
+
+// Close mobile menu when clicking on a nav link (optional)
+const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+mobileNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    mobileNav.classList.add('hidden');
+    body.classList.remove('overflow-hidden');
+  });
+});
+
+// Close mobile menu when clicking outside of it (optional)
+document.addEventListener('click', (e) => {
+  if (!mobileNav.contains(e.target) && !mobileMenu.contains(e.target)) {
+    mobileMenu.classList.remove('active');
+    mobileNav.classList.add('hidden');
+    body.classList.remove('overflow-hidden');
+  }
+});
 
     // Animation on scroll
     const animateElements = document.querySelectorAll('.animate-slide-up, .animate-fade-in');
